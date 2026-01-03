@@ -20,9 +20,8 @@ It combines a floating-point calculator with operator precedence, full memory fu
  * B = -  (Shift: ÷)
  * C = .  (Shift: E)
  * D = Shift  (Shift: Cancel)
- * * = Equals  (Shift: Equals)##
-
- * # = Backspace  (Shift: Clear entry)
+ * (*) = Equals  (Shift: Equals)
+ * (#) = Backspace  (Shift: Clear entry)
 
 ## Memory functions:
  *   Shift+1 = MS  (memory store)
