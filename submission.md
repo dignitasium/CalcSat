@@ -32,4 +32,4 @@ Debugging on real hardware highlighted issues that do not appear in simulation, 
 ## LO4: Throughout the project, technical literature such as the TM4C123 datasheet, LCD controller documentation, and example keypad‑scanning code was consulted and evaluated. 
 These sources informed design decisions, for example the debounce delay and pin configuration, while the final code was tailored to the specific board and assignment constraints. 
 
-## Overall, the project demonstrates meaningful progress against each learning outcome and provides a foundation for more complex embedded applications in the future.
+Overall, the project demonstrates meaningful progress against each learning outcome and provides a foundation for more complex embedded applications in the future.
