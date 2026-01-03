@@ -1,171 +1,234 @@
-# LCD and Keypad Interface Project
+CALCSAT – TM4C123GH6PM SCIENTIFIC CALCULATOR  
+===========================================  
 
-## Overview
-This project implements a 16x2 LCD display interface and 4x4 matrix keypad driver for the TM4C123GH6PM microcontroller.
+Project Summary  
+---------------  
+CalcSat is a feature-rich scientific-style calculator implemented on the TI TM4C123GH6PM LaunchPad.  
+It combines a floating-point calculator with operator precedence, full memory functions, and a set of hidden games and easter eggs, all controlled via a 4×4 keypad and displayed on a 16×2 character LCD.  
 
-## Hardware Connections
+***
 
-### LCD (16x2 HD44780 compatible)
-- **PA2**: LCD Enable (EN)
-- **PA3**: LCD Register Select (RS)
-- **PB4-7**: LCD Data lines (DB4-DB7) - 4-bit mode
+1. Features Overview  
+--------------------  
 
-### Keypad (4x4 Matrix)
-- **PB0-3**: Columns (Outputs)
-- **PE0-3**: Rows (Inputs with pull-down resistors)
+- Floating-point arithmetic: +, -, ×, ÷  
+- Scientific notation using ×10^n (E key)  
+- Operator precedence (PEMDAS) using a two-pass evaluation  
+- Calculator-style memory functions: MS, MR, MC, M+, M-  
+- Shift key for extended operations and memory access  
+- Expression and result display on a 16×2 LCD  
+- Error handling (e.g. divide-by-zero) with clear messages  
+- Easter-egg codes and several mini-games activated from the calculator  
 
-### Keypad Layout
-```
-1  2  3  A
-4  5  6  B
-7  8  9  C
-*  0  #  D
-```
+***
 
-## Project Structure
+2. Hardware Connections  
+-----------------------  
 
-```
-project/
-+-- src/
-¦   +-- main.c              - Main application
-¦   +-- lcd.c               - LCD driver implementation
-¦   +-- keypad.c            - Keypad driver implementation
-¦   +-- system.c            - System utilities (delays, init)
-+-- inc/
-¦   +-- lcd.h               - LCD driver header
-¦   +-- keypad.h            - Keypad driver header
-¦   +-- system.h            - System utilities header
-¦   +-- pin_definitions.h   - Hardware register definitions
-+-- README.md
-```
+Target platform: **TI Tiva C TM4C123GH6PM LaunchPad**  
+Peripherals: **16×2 HD44780 LCD** and **4×4 matrix keypad**  
 
-## File Descriptions
+LCD (4-bit mode)  
+- D4–D7  ? Port B, pins PB4–PB7  
+- RS     ? Port A, e.g. PA3  
+- EN     ? Port A, e.g. PA2  
+- RW     ? GND (write-only)  
+- VCC    ? 5 V  
+- VSS    ? GND  
+- V0     ? Contrast via ~10 kO potentiometer between VCC and GND  
 
-### Main Application (main.c)
-- Initializes system, LCD, and keypad
-- Displays "Press Key:" on the LCD
-- Continuously scans keypad and displays pressed keys
+Keypad (4×4 matrix)  
+- Rows   ? GPIO outputs, e.g. PE0–PE3  
+- Columns? GPIO inputs with pull-ups, e.g. PB0–PB3  
 
-### LCD Driver (lcd.c / lcd.h)
-**Functions:**
-- `LCD_Init()` - Initialize LCD in 4-bit mode
-- `LCD_Cmd(cmd)` - Send command to LCD
-- `LCD_Char(data)` - Display single character
-- `LCD_String(str)` - Display string
-- `LCD_Clear()` - Clear display
-- `LCD_SetCursor(row, col)` - Set cursor position
+Power  
+- USB on the LaunchPad supplies power.  
+- Ensure all modules share a common ground.  
 
-**Common Commands:**
-- `LCD_CLEAR` - Clear display
-- `LCD_LINE1` - Move to line 1
-- `LCD_LINE2` - Move to line 2
+(If your wiring differs, update `pin_definitions.h` to match.)  
 
-### Keypad Driver (keypad.c / keypad.h)
-**Functions:**
-- `Keypad_Init()` - Initialize keypad GPIO
-- `ReadKey()` - Scan keypad, return pressed key (0 if none)
-- `WaitForKey()` - Block until key pressed and released
+***
 
-**Returns:**
-- Characters: '0'-'9', 'A'-'D', '*', '#'
-- 0 if no key pressed
+3. Keypad Layout and Key Mappings  
+---------------------------------  
 
-### System Utilities (system.c / system.h)
-**Functions:**
-- `System_Init()` - Initialize clocks and SysTick
-- `Delay_ms(ms)` - Millisecond delay
-- `Delay_us(us)` - Microsecond delay
-- `millis()` - Get approximate milliseconds since startup
+Physical layout (logical view):  
 
-### Pin Definitions (pin_definitions.h)
-- All TM4C123 register addresses
-- Pin masks and definitions
-- Hardware abstraction macros
+    R1:  1   2   3   A  
+    R2:  4   5   6   B  
+    R3:  7   8   9   C  
+    R4:  *   0   #   D  
 
-## How to Use
+NORMAL MODE  
+- Digits: `0–9`     ? Number entry  
+- `A`              ? `+`  
+- `B`              ? `-`  
+- `C`              ? Decimal point `.`  
+- `D`              ? Toggle Shift mode  
+- `*`              ? Equals  
+- `#`              ? Backspace (delete last digit)  
 
-### Basic LCD Usage
-```c
-LCD_Init();
-LCD_String("Hello World!");
-LCD_SetCursor(1, 0);  // Move to line 2
-LCD_String("Line 2");
-```
+SHIFTED MODE (press `D` once, then key)  
+- `A` ? `×`  
+- `B` ? `÷`  
+- `C` ? `E` (×10^n scientific notation)  
+- `#` ? Clear current entry (CE)  
 
-### Basic Keypad Usage
-```c
-Keypad_Init();
+Memory functions (Shift + digit)  
+- `Shift + 1` ? MS  (Memory Store)  
+- `Shift + 2` ? MR  (Memory Recall)  
+- `Shift + 3` ? MC  (Memory Clear)  
+- `Shift + 4` ? M+  (Memory Add)  
+- `Shift + 5` ? M-  (Memory Subtract)  
 
-// Method 1: Non-blocking
-char key = ReadKey();
-if(key != 0) {
-    // Key was pressed
-}
+Easter eggs and games  
+- Enter a special number, then press `*` to trigger easter-egg messages or launch a mini-game.  
 
-// Method 2: Blocking
-char key = WaitForKey();  // Waits until key pressed
-```
+***
 
-## Technical Details
+4. Project Structure  
+--------------------  
 
-### LCD Communication
-- 4-bit parallel interface
-- Standard HD44780 timing requirements
-- Initialize sequence follows datasheet
+Top-level layout (folders may vary slightly by IDE):  
 
-### Keypad Scanning
-- Column scanning method
-- Pull-down resistors on row inputs
-- 5ms scan delay per column
-- Debouncing in WaitForKey()
+- `src/`  
+  - `main.c`  
+    - System entry point, hardware initialisation, main loop, game activation logic.  
+  - `calculator.c`  
+    - Calculator state machine, input handling, operator precedence, memory operations, display updates.  
+  - `lcd.c`  
+    - 16×2 LCD driver in 4-bit mode (initialisation, command and data writes).  
+  - `keypad.c`  
+    - 4×4 keypad scan routine and mapping from row/column to characters.  
+  - `system.c`  
+    - System clock configuration, delay functions, board-level initialisation.  
+  - `splash.c`  
+    - Startup splash animations and title screens.  
+  - `games.c`  
+    - Easter-egg messages and mini-games, plus activation-code detection.  
 
-### Timing
-- System runs at 80MHz (assuming PLL enabled)
-- SysTick provides accurate timing
-- 1ms delay = 80,000 clock cycles
+- `inc/`  
+  - `calculator.h`, `lcd.h`, `keypad.h`, `system.h`, `splash.h`, `games.h`  
 
-## Building the Project
+- `config/`  
+  - `pin_definitions.h` – all LCD and keypad pin mappings.  
 
-1. Add all `.c` files to your Keil/CCS project
-2. Include all `.h` files in your include path
-3. Configure for TM4C123GH6PM target
-4. Build and flash to microcontroller
+- `Device/`  
+  - Startup and system files for the TM4C123GH6PM microcontroller.  
 
-## Testing
+***
 
-1. Connect LCD and keypad as per pin definitions
-2. Power on the board
-3. LCD should display "Press Key:"
-4. Press any key on keypad
-5. Key should appear on LCD line 2
+5. Technical Details  
+--------------------  
 
-## Troubleshooting
+5.1 LCD Communication (4-bit HD44780)  
+- Data is sent in **two nibbles**: upper 4 bits, then lower 4.  
+- RS selects command (0) or data (1).  
+- EN is pulsed high for each nibble to latch the value.  
+- RW is tied low; the firmware never reads the busy flag, it uses delays.  
+- Initialisation sequence:  
+  1. Power-up delay.  
+  2. Function set in 4-bit, 2-line mode.  
+  3. Display on, cursor settings.  
+  4. Clear display and set entry mode.  
 
-**LCD shows nothing:**
-- Check contrast potentiometer
-- Verify connections (EN, RS, data pins)
-- Check 5V power supply
+5.2 Keypad Scanning  
+- Rows configured as **outputs**; columns as **inputs with pull-ups**.  
+- Scan algorithm:  
+  1. Set all rows high.  
+  2. For each row:  
+     - Drive that row low.  
+     - Read all columns.  
+     - Any column reading low indicates a pressed key at (row, column).  
+  3. Translate (row, column) into a character (`'0'–'9'`, `'A'–'D'`, `'*'`, `'#'`).  
 
-**LCD shows blocks:**
-- Contrast too high
-- Initialization issue
+5.3 Timing and Debouncing  
+- A millisecond delay routine (`Delay_ms`) is used for:  
+  - LCD command timing (clear, home, data writes).  
+  - Keypad debounce.  
+- Main loop behaviour:  
+  - Read the keypad roughly every 50 ms.  
+  - Compare the current key with `last_key`.  
+  - Only act when `key != 0` and `key != last_key` (edge detection).  
+- This prevents repeated processing while a key is held.  
 
-**Keypad not responding:**
-- Check column outputs (PB0-3)
-- Verify row inputs (PE0-3) have pull-down enabled
-- Check for short circuits in matrix
+5.4 Calculator Engine and Memory  
+- All calculator state is stored in a `Calculator` struct.  
+- Operands and operators are pushed into arrays as the user types.  
+- On `=`, a two-pass evaluation runs:  
+  - Pass 1: handle `×`, `÷`, and `E` (×10^n).  
+  - Pass 2: handle `+` and `-`.  
+- Memory register:  
+  - MS/MR/MC/M+/M- operate on a single floating-point `memory` value.  
+  - The first LCD line shows `M:` and the memory value whenever memory is non-zero.  
 
-**Wrong keys displayed:**
-- Verify row/column connections
-- Check keypad matrix wiring
-- Confirm pull-down resistors on PE0-3
+***
 
-## Notes
+6. Building the Project  
+-----------------------  
 
-- Port B pins are shared between LCD data (upper nibble) and keypad columns (lower nibble)
-- Care is taken in code to preserve LCD data when scanning keypad
-- All timing requirements for LCD met with Delay_ms()
-- System assumes 80MHz clock - adjust delays if different
+1. Create a new TM4C123GH6PM project in your IDE (e.g. Keil µVision, Code Composer Studio).  
+2. Add all `.c` files from `src/` to the project.  
+3. Add the `inc/` folder to the compiler’s include path.  
+4. Ensure the correct startup and system files for TM4C123GH6PM are included (in `Device/`).  
+5. Verify that `pin_definitions.h` matches your actual wiring for LCD and keypad.  
+6. Build the project; resolve any missing paths or warnings.  
+7. Flash the generated binary to the LaunchPad through the on-board debugger.  
 
-## License
-Free to use for educational purposes.
+***
+
+7. Testing Guide  
+----------------  
+
+Power-on tests  
+- On reset, the splash screen should appear, then the main calculator display should show `0`.  
+
+Basic arithmetic  
+- `2 + 3 *` ? expect result `5`.  
+- `7 - 4 *` ? expect result `3`.  
+
+Precedence (PEMDAS)  
+- `2 + 3 × 4 *`  
+  - Enter: `2 A 3 D A 4 *`  
+  - Expect: `14` (3 × 4 = 12, then 2 + 12).  
+
+Scientific notation  
+- Enter `1`, `D`, `C`, `3`, `*` ? expect `1000` (1 × 10^3).  
+
+Memory functions  
+- Store: enter a value, then `D 1` (MS).  
+- Recall: `D 2` (MR) should bring the stored value to the display.  
+- Add: `D 4` (M+) should accumulate the current value into memory.  
+- Subtract: `D 5` (M-) should subtract from memory.  
+- Clear: `D 3` (MC) should reset memory to 0 and remove the memory indicator.  
+
+Easter eggs and games  
+- Enter codes like `42 *`, `1337 *`, `5318008 *`, `4321 *` and confirm that messages or games appear and the calculator resets correctly afterwards.  
+
+***
+
+8. Troubleshooting  
+------------------  
+
+No LCD text or random glyphs  
+- Check LCD power, ground, and contrast.  
+- Confirm that LCD pins match the configuration in `pin_definitions.h`.  
+- Make sure `LCD_Init()` is called before any other LCD function.  
+
+Keys not detected or wrong characters  
+- Verify row and column wiring for the keypad.  
+- Ensure rows are outputs and columns are inputs with pull-ups.  
+- If one key produces the wrong character, review the row/column to key mapping table in `keypad.c`.  
+
+Multiple key presses from one tap  
+- Increase the debounce delay (`Delay_ms(50)` in the main loop).  
+- Confirm that the `last_key` mechanism is still present and not modified.  
+
+Calculator stuck showing an error  
+- After an error message (e.g. divide-by-zero), press any non-shift key to clear and re-initialise the calculator.  
+
+Games never start  
+- Check that you typed the exact activation code followed by `*`.  
+- Make sure `Games_CheckActivation` and `Games_Launch` are being called from `main.c` when `*` is pressed.  
+
+***

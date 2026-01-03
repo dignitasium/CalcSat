@@ -441,11 +441,6 @@
               <FilePath>.\README.txt</FilePath>
             </File>
             <File>
-              <FileName>HARDWARE_CONNECTIONS.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\HARDWARE_CONNECTIONS.txt</FilePath>
-            </File>
-            <File>
               <FileName>EasterEggs.txt</FileName>
               <FileType>5</FileType>
               <FilePath>.\EasterEggs.txt</FilePath>

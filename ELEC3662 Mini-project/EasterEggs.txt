@@ -494,81 +494,6 @@ Beat all games in minimum time:
 
 ---
 
-## ?? Educational Value
-
-These games aren't just fun - they teach:
-
-**Snake:** 
-- Spatial planning
-- Strategy
-- Risk assessment
-
-**Number Guess:**
-- Binary search algorithm
-- Logic
-- Deduction
-
-**Math Quiz:**
-- Mental arithmetic
-- Speed calculation
-- Number sense
-
-**Reaction Test:**
-- Hand-eye coordination
-- Focus
-- Timing
-
-**Memory Game:**
-- Short-term memory
-- Pattern recognition
-- Concentration
-
-**Pong:**
-- Timing
-- Anticipation
-- Reflexes
-
----
-
-## ?? Demo Mode
-
-**For Presentations:**
-Show off CalcSat's fun side!
-
-1. Start with easter egg: `42`
-2. Show game: `7734` (Math Quiz)
-3. Explain educational value
-4. Show space theme: `73` or `36000`
-
-**For Industry Demos (ESA/Airbus):**
-- Focus on `73` (ham radio)
-- Show `36000` (satellite)
-- Mention educational games
-- Highlight embedded programming
-
-**For University Fair:**
-- Let visitors try games!
-- Number Guess is quick
-- Math Quiz shows off
-- Easter eggs get laughs
-
----
-
-## ?? Hidden Features
-
-### Secret Combinations:
-Try entering these and see what happens:
-- Your birthday (DDMMYY format)
-- 12345
-- 99999
-- 11111
-
-### Konami Code:
-Can you find the Konami code equivalent?
-Hint: It involves the keypad arrows...
-
----
-
 ## ?? Adding Your Own
 
 Want to add your own easter egg or game?
@@ -607,50 +532,15 @@ void Easter_Leeds(void) {
 
 ---
 
-## ?? Showcase Ideas
-
-### For Portfolio:
 > "CalcSat includes 6 mini-games and 7 easter eggs,
 > demonstrating creative firmware development and
 > user experience design. Games range from arcade
 > classics (Snake, Pong) to educational tools
 > (Math Quiz, Memory)."
 
-### For Demos:
-- Start with splash screen
-- Do a quick calculation
-- "But wait, there's more!"
-- Enter `42` ? Big reveal
-- Play quick game
-- Audience loves it!
-
-### For YouTube/TikTok:
-- "Hidden Games in My Calculator"
-- Show each code
-- Speed run challenge
-- Easter egg hunt
-- Behind-the-scenes code
-
 ---
 
-## ?? Final Thoughts
-
 CalcSat isn't just a calculator - it's an **entertainment system**, **educational tool**, and **conversation starter** all in one!
-
-### Why This Is Awesome:
-? Shows personality
-? Demonstrates coding skill
-? Makes demos memorable
-? Gets people talking
-? Perfect ice-breaker
-
-### Interview Talking Point:
-> "I wanted CalcSat to be more than just functional.
-> The hidden games demonstrate my ability to create
-> engaging user experiences within tight hardware
-> constraints. The easter eggs reference tech culture
-> and amateur radio, showing my involvement in the
-> broader engineering community."
 
 **Most importantly:** It's FUN! ???
 

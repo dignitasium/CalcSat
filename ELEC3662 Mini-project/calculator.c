@@ -7,6 +7,7 @@
  * Key Mappings:
  * Normal:  A=+  B=-  C=.  D=Shift  *=Equals  #=Backspace
  * Shifted: A=×  B=÷  C=E  D=Cancel #=Clear
+ * Shifted: 1= MS(store), 2 = MR(recall), 3 = MC(clear), 4 = M+(add), 5 = M-(subtract)
  */
 
 #include "calculator.h"
@@ -74,6 +75,33 @@ void Calculator_ProcessKey(Calculator* calc, char key) {
             Calculator_ClearEntry(calc);
             calc->shift_active = 0;
         }
+				// ===== Memory keys in shifted mode =====
+				else if(key == '1') {
+						// MS: store current value
+						Calculator_MemoryStore(calc);
+						calc->shift_active = 0;
+				}
+				else if(key == '2') {
+						// MR: recall memory
+						Calculator_MemoryRecall(calc);
+						calc->shift_active = 0;
+				}
+				else if(key == '3') {
+						// MC: clear memory
+						Calculator_MemoryClear(calc);
+						calc->shift_active = 0;
+				}
+				else if(key == '4') {
+						// M+: add to memory
+						Calculator_MemoryAdd(calc);
+						calc->shift_active = 0;
+				}
+				else if(key == '5') {
+						// M-: subtract from memory
+						Calculator_MemorySubtract(calc);
+						calc->shift_active = 0;
+				}			
+				
         else {
             // Other keys cancel shift
             calc->shift_active = 0;
