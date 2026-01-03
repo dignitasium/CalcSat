@@ -1,5 +1,4 @@
 # CALCSAT – TM4C123GH6PM SCIENTIFIC CALCULATOR  
-===========================================  
 
 # Project Summary  
 ---------------  
