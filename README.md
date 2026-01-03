@@ -1,12 +1,20 @@
+CALCSAT – TM4C123GH6PM SCIENTIFIC CALCULATOR  
+===========================================  
+
+Project Summary  
+---------------  
+CalcSat is a feature-rich scientific-style calculator implemented on the TI TM4C123GH6PM LaunchPad.  
+It combines a floating-point calculator with operator precedence, full memory functions, and a set of hidden games and easter eggs, all controlled via a 4×4 keypad and displayed on a 16×2 character LCD.  
+
 # Leeds Space Comms Splash Screen
 
-# Memory functions (implemented in calculator.c):
+# Memory functions:
  *   Shift+1 = MS  (memory store)
  *   Shift+2 = MR  (memory recall)
  *   Shift+3 = MC  (memory clear)
  *   Shift+4 = M+  (add to memory)
  *   Shift+5 = M-  (subtract from memory)
- *
+ *   
 # Easter eggs and games:
  *   Enter the numbers below and press equals:
  *     42     -> "Answer to Life" message
