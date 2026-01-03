@@ -8,6 +8,10 @@ It combines a floating-point calculator with operator precedence, full memory fu
 ## Leeds Space Comms Splash Screen
  * Ground Station Link to M0XWI / M0LSC
 
+## Key Mappings:
+ * Normal:  A = +    B = -    C = .    D = Shift   * = Equals   # = Backspace
+ * Shifted: A = ×    B = ÷    C = E    D = Cancel  # = Clear entry
+
 ## Memory functions:
  *   Shift+1 = MS  (memory store)
  *   Shift+2 = MR  (memory recall)
