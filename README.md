@@ -7,14 +7,14 @@ CalcSat is a feature-rich scientific-style calculator implemented on the TI TM4C
 It combines a floating-point calculator with operator precedence, full memory functions, and a set of hidden games and easter eggs, all controlled via a 4×4 keypad and displayed on a 16×2 character LCD.  
 
 # Leeds Space Comms Splash Screen
-
+ * Ground Station Link to M0XWI / M0LSC
 # Memory functions:
  *   Shift+1 = MS  (memory store)
  *   Shift+2 = MR  (memory recall)
  *   Shift+3 = MC  (memory clear)
  *   Shift+4 = M+  (add to memory)
  *   Shift+5 = M-  (subtract from memory)
- *   
+
 # Easter eggs and games:
  *   Enter the numbers below and press equals:
  *     42     -> "Answer to Life" message
@@ -23,7 +23,7 @@ It combines a floating-point calculator with operator precedence, full memory fu
  *     314159 -> Pi digits
  *     73     -> Ham radio greeting
  *     8008135-> Classic calculator gag
- *
+
 # Game activation codes:
  *     5318008 -> Snake game
  *     7734    -> Math quiz
