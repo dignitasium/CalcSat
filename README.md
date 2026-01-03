@@ -9,8 +9,13 @@ It combines a floating-point calculator with operator precedence, full memory fu
  * Ground Station Link to M0XWI / M0LSC
 
 ## Key Mappings:
- * Normal:  A = +    B = -    C = .    D = Shift   * = Equals   # = Backspace
- * Shifted: A = ×    B = ÷    C = E    D = Cancel  # = Clear entry
+|   | Normal    | Shifted     |
+| A |  +        | ×           |
+| B |  -        | ÷           | 
+| C |  .        | E           |
+| D | Shift     | Cancel      |
+| * | Equals    | Equals      |
+| # | Backspace | Clear entry |
 
 ## Memory functions:
  *   Shift+1 = MS  (memory store)
