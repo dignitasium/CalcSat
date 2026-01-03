@@ -9,7 +9,7 @@ It combines a floating-point calculator with operator precedence, full memory fu
  * Ground Station Link to M0XWI / M0LSC
 
 ## Key Mappings:
-|   | Normal    | Shifted     |
+| -  | Normal    | Shifted     |
 | A |  +        | ×           |
 | B |  -        | ÷           | 
 | C |  .        | E           |
