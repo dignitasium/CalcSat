@@ -1,0 +1,657 @@
+# ?? CalcSat Games & Easter Eggs Guide
+
+## Overview
+Your CalcSat calculator is secretly packed with fun mini-games and easter eggs! Enter special codes to unlock hidden features and games.
+
+---
+
+## ?? EASTER EGGS
+
+### How to Activate:
+1. Enter the number
+2. Press ***** (equals)
+3. Enjoy the surprise!
+
+### Easter Egg List:
+
+#### **42** - The Answer
+```
+Enter: 42 [*]
+
+Display:
+"The Answer to"
+"Life, Universe"
+?
+"and Everything"
+"is 42"
+```
+**Reference:** Hitchhiker's Guide to the Galaxy
+
+---
+
+#### **1337** - Leet Mode
+```
+Enter: 1337 [*]
+
+Display:
+"1337 M0D3"
+"4C7IV473D!"
+?
+"H4CK 7H3"
+"PL4N37!"
+```
+**Reference:** Leet speak / hacker culture
+
+---
+
+#### **404** - Error Not Found
+```
+Enter: 404 [*]
+
+Display:
+"ERROR 404"
+"Result not found"
+?
+"Have you tried"
+"turning it off?"
+```
+**Reference:** HTTP 404 error
+
+---
+
+#### **314159** or **31415** - Pi Digits
+```
+Enter: 314159 [*]
+
+Display:
+"Pi = 3.14159265"
+"35897932384626"
+[scrolls to show more digits]
+```
+**Reference:** Pi (p) - the mathematical constant
+
+---
+
+#### **8008135** - Classic Calculator
+```
+Enter: 8008135 [*]
+
+Display:
+"8008135"
+"Classic! :)"
+?
+"Turn calculator"
+"upside down!"
+```
+**Reference:** Classic calculator word (reads "BOOBIES" upside down)
+
+---
+
+#### **73** - Ham Radio Greeting
+```
+Enter: 73 [*]
+
+Display:
+"73 de M0XWI"
+"73 de M0LSC"
+?
+"Best regards!"
+"Keep calm & QSO"
+```
+**Reference:** Amateur radio code for "best regards"  
+**Perfect for:** M0LSC demos!
+
+---
+
+#### **36000** - Satellite Altitude
+```
+Enter: 36000 [*]
+
+Display:
+"QO-100 LINK"
+"ESTABLISHED"
+?
+"73 from GEO!"
+"36,000 km up"
+```
+**Reference:** Geostationary orbit altitude (QO-100 satellite)
+
+---
+
+## ?? MINI-GAMES
+
+### How to Activate:
+1. Enter the secret code
+2. Press ***** (equals)
+3. Game launches automatically!
+
+---
+
+### Game 1: **SNAKE** ??
+**Code:** `5318008`
+
+```
+Enter: 5318008 [*]
+
+Controls:
+- A = Move left
+- B = Move right
+- C = Change row (up/down)
+- * = Exit
+
+Objective:
+- Eat the food (*)
+- Avoid hitting walls
+- Score as many points as possible!
+
+Display:
++----------------+
+¦05          O  *¦ ? Snake (O) and food (*)
+¦                ¦
++----------------+
+```
+
+**Tips:**
+- Score shown in top-left
+- Snake wraps at edges
+- Each food = +1 point
+- Try to beat your high score!
+
+---
+
+### Game 2: **NUMBER GUESSING** ??
+**Code:** `5373`
+
+```
+Enter: 5373 [*]
+
+How to Play:
+- Computer picks number 1-100
+- You have 7 tries to guess
+- Get hints: "TOO HIGH" or "TOO LOW"
+
+Controls:
+- 0-9 = Enter digits
+- # = Backspace
+- * = Submit guess
+- D = Exit
+
+Example:
+"Guess: 50"
+"Tries: 1/7"
+? "TOO LOW!"
+
+"Guess: 75"
+"Tries: 2/7"
+? "TOO HIGH!"
+
+"Guess: 63"
+"Tries: 3/7"
+? "YOU WIN!"
+"3 tries"
+```
+
+**Strategy:**
+- Start with 50 (middle)
+- Use binary search
+- Eliminate half each time
+- Can solve in max 7 tries!
+
+---
+
+### Game 3: **MATH QUIZ** ??
+**Code:** `7734`
+
+```
+Enter: 7734 [*]
+
+Format:
+- 5 random math questions
+- Addition or multiplication
+- Numbers from 2-20
+- Score at end
+
+Example Question:
+"Q1: 7*8=?"
+"Ans: 56"
+
+Controls:
+- 0-9 = Enter answer
+- # = Backspace
+- * = Submit
+
+Final Display:
+"QUIZ DONE!"
+"Score: 5/5"
+```
+
+**Perfect Score:** All 5 correct gets animation!
+
+---
+
+### Game 4: **REACTION TEST** ?
+**Code:** `1234`
+
+```
+Enter: 1234 [*]
+
+How it Works:
+1. Wait for "GO!" message
+2. Press * as fast as possible
+3. Your time is displayed
+4. 3 rounds total
+5. Average time calculated
+
+Display:
+"ROUND 1"
+"Get ready..."
+[random delay 2-5 seconds]
+?
+"GO!"
+"PRESS *"
+[you press *]
+?
+"Time: 287ms"
+
+After 3 rounds:
+"AVG TIME:"
+"264 ms"
+```
+
+**Good Times:**
+- < 200ms = Excellent! ??
+- 200-300ms = Good ?
+- 300-400ms = Average
+- > 400ms = Practice more!
+
+---
+
+### Game 5: **MEMORY GAME** ??
+**Code:** `4321`
+
+```
+Enter: 4321 [*]
+
+Game Type: Simon Says
+
+How to Play:
+1. Watch the sequence
+2. Repeat it exactly
+3. Sequence gets longer
+4. Survive 10 levels = WIN!
+
+Example:
+Level 1:
+"Watch! Lvl:01"
+? Shows: [A]
+"Your turn!"
+You press: [A]
+? "CORRECT!"
+
+Level 2:
+? Shows: [A] [C]
+You press: [A] [C]
+
+Level 3:
+? Shows: [A] [C] [B]
+You press: [A] [C] [B]
+
+...continues to Level 10!
+
+Keys Used:
+A, B, C, D (all four keys)
+
+Get one wrong:
+"WRONG!"
+"Level: 05"
+```
+
+**Tips:**
+- Pay close attention!
+- Use mnemonics
+- Don't rush input
+- Level 10 = "MEMORY MASTER"
+
+---
+
+### Game 6: **PONG** ??
+**Code:** `9009`
+
+```
+Enter: 9009 [*]
+
+Simple 1-player Pong:
+- Ball bounces across screen
+- Press A when ball reaches paddle
+- Score point on hit
+- Get 10 points to win!
+
+Display:
++----------------+
+¦5         O     ¦ ? Ball
+¦       |        ¦ ? Paddle
++----------------+
+
+Controls:
+- A = Hit ball
+
+Score shown top-left
+
+Miss the ball:
+"MISSED!"
+"Score: 7"
+
+Win (10 points):
+"YOU WIN!"
+"Perfect 10!"
+```
+
+**Timing:** Press A right when ball reaches paddle!
+
+---
+
+## ?? Complete Code Reference
+
+### Easter Eggs (Enter + Press *):
+| Code | Easter Egg | Theme |
+|------|------------|-------|
+| 42 | Answer to Everything | Hitchhiker's Guide |
+| 1337 | Leet Mode | Hacker culture |
+| 404 | Error Not Found | Internet humor |
+| 314159 | Pi Digits | Mathematics |
+| 8008135 | Classic Calculator | Retro |
+| 73 | Ham Radio | Amateur radio |
+| 36000 | Satellite Link | Space comms |
+
+### Games (Enter + Press *):
+| Code | Game | Type |
+|------|------|------|
+| 5318008 | Snake | Action |
+| 5373 | Number Guess | Logic |
+| 7734 | Math Quiz | Educational |
+| 1234 | Reaction Test | Speed |
+| 4321 | Memory Game | Memory |
+| 9009 | Pong | Arcade |
+
+---
+
+## ?? High Score Tracking
+
+Games track your best scores:
+- **Snake:** Highest score
+- **Number Guess:** Fewest tries
+- **Math Quiz:** Fastest time
+- **Reaction:** Best average
+- **Memory:** Highest level
+- **Pong:** Longest streak
+
+(High scores saved between sessions!)
+
+---
+
+## ?? Fun Facts
+
+### Game Code Origins:
+
+**5318008** (Snake)
+- Reads "BOOBIES" upside down
+- Classic calculator word!
+
+**7734** (Math Quiz)
+- Reads "hELL" upside down
+- For math "hell" (tough quiz!)
+
+**5373** (Guess)
+- Looks like "SESE"
+- Guess/search theme
+
+**9009** (Pong)
+- Palindrome
+- Bounces like ball!
+
+**1234/4321** (Reaction/Memory)
+- Sequential numbers
+- Forward/backward thinking
+
+---
+
+## ?? Tips & Tricks
+
+### Finding Easter Eggs:
+- Try calculator-related numbers
+- Try famous constants (p, e, f)
+- Try internet memes
+- Try your birthday!
+
+### Game Strategies:
+
+**Snake:**
+- Plan your path
+- Don't trap yourself
+- Food spawns randomly
+
+**Number Guess:**
+- Always start with 50
+- Use binary search
+- Eliminate half each guess
+
+**Math Quiz:**
+- Know your times tables!
+- 2-20 range only
+- Mental math practice
+
+**Reaction Test:**
+- Don't anticipate
+- Stay relaxed
+- Focus on "GO!"
+
+**Memory:**
+- Create patterns
+- Use spatial memory
+- Visualize sequence
+
+**Pong:**
+- Watch ball speed
+- Anticipate timing
+- Practice makes perfect!
+
+---
+
+## ?? Easter Egg Hunt Challenge
+
+Can you find all the easter eggs? Here's a checklist:
+
+- [ ] 42 - Hitchhiker's Guide
+- [ ] 1337 - Leet speak
+- [ ] 404 - Error page
+- [ ] 314159 - Pi
+- [ ] 8008135 - Classic word
+- [ ] 73 - Ham radio
+- [ ] 36000 - GEO orbit
+
+**Bonus:** Try entering your own special numbers!
+
+---
+
+## ?? Game Challenge Modes
+
+### Speed Run:
+Beat all games in minimum time:
+1. Snake - 5 points
+2. Guess - 3 tries
+3. Quiz - Perfect score
+4. Reaction - Sub-200ms
+5. Memory - Level 10
+6. Pong - 10 points
+
+### Perfect Run:
+- Snake: No deaths, 10 points
+- Guess: 1 guess (lucky!)
+- Quiz: 5/5 correct
+- Reaction: All under 250ms
+- Memory: Complete level 10
+- Pong: No misses
+
+---
+
+## ?? Educational Value
+
+These games aren't just fun - they teach:
+
+**Snake:** 
+- Spatial planning
+- Strategy
+- Risk assessment
+
+**Number Guess:**
+- Binary search algorithm
+- Logic
+- Deduction
+
+**Math Quiz:**
+- Mental arithmetic
+- Speed calculation
+- Number sense
+
+**Reaction Test:**
+- Hand-eye coordination
+- Focus
+- Timing
+
+**Memory Game:**
+- Short-term memory
+- Pattern recognition
+- Concentration
+
+**Pong:**
+- Timing
+- Anticipation
+- Reflexes
+
+---
+
+## ?? Demo Mode
+
+**For Presentations:**
+Show off CalcSat's fun side!
+
+1. Start with easter egg: `42`
+2. Show game: `7734` (Math Quiz)
+3. Explain educational value
+4. Show space theme: `73` or `36000`
+
+**For Industry Demos (ESA/Airbus):**
+- Focus on `73` (ham radio)
+- Show `36000` (satellite)
+- Mention educational games
+- Highlight embedded programming
+
+**For University Fair:**
+- Let visitors try games!
+- Number Guess is quick
+- Math Quiz shows off
+- Easter eggs get laughs
+
+---
+
+## ?? Hidden Features
+
+### Secret Combinations:
+Try entering these and see what happens:
+- Your birthday (DDMMYY format)
+- 12345
+- 99999
+- 11111
+
+### Konami Code:
+Can you find the Konami code equivalent?
+Hint: It involves the keypad arrows...
+
+---
+
+## ?? Adding Your Own
+
+Want to add your own easter egg or game?
+
+### Add Easter Egg:
+1. Edit `games.c`
+2. Add to `Games_CheckEasterEgg()`
+3. Create your `Easter_YourName()` function
+
+Example:
+```c
+void Easter_Leeds(void) {
+    LCD_Clear();
+    LCD_String("  LEEDS UNITE");
+    LCD_Cmd(LCD_LINE2);
+    LCD_String("  MOT MOT MOT!");
+    Delay_ms(2000);
+}
+```
+
+### Add Game:
+1. Define game code
+2. Add to `Games_CheckActivation()`
+3. Implement game logic
+4. Add controls
+
+---
+
+## ?? CalcSat Pro Tips
+
+1. **Memorize Codes:** Keep your favorites handy
+2. **Share Codes:** Show friends the hidden games
+3. **High Scores:** Challenge your classmates
+4. **Easter Egg Hunt:** Make it a demo activity
+5. **Customize:** Add your own codes!
+
+---
+
+## ?? Showcase Ideas
+
+### For Portfolio:
+> "CalcSat includes 6 mini-games and 7 easter eggs,
+> demonstrating creative firmware development and
+> user experience design. Games range from arcade
+> classics (Snake, Pong) to educational tools
+> (Math Quiz, Memory)."
+
+### For Demos:
+- Start with splash screen
+- Do a quick calculation
+- "But wait, there's more!"
+- Enter `42` ? Big reveal
+- Play quick game
+- Audience loves it!
+
+### For YouTube/TikTok:
+- "Hidden Games in My Calculator"
+- Show each code
+- Speed run challenge
+- Easter egg hunt
+- Behind-the-scenes code
+
+---
+
+## ?? Final Thoughts
+
+CalcSat isn't just a calculator - it's an **entertainment system**, **educational tool**, and **conversation starter** all in one!
+
+### Why This Is Awesome:
+? Shows personality
+? Demonstrates coding skill
+? Makes demos memorable
+? Gets people talking
+? Perfect ice-breaker
+
+### Interview Talking Point:
+> "I wanted CalcSat to be more than just functional.
+> The hidden games demonstrate my ability to create
+> engaging user experiences within tight hardware
+> constraints. The easter eggs reference tech culture
+> and amateur radio, showing my involvement in the
+> broader engineering community."
+
+**Most importantly:** It's FUN! ???
+
+Now go unlock all those secrets! ??

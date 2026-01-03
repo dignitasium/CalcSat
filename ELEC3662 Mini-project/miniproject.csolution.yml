@@ -1,0 +1,10 @@
+solution:
+  created-by: uv2csolution@1.6.0
+  created-for: CMSIS-Toolbox@2.7.0
+  compiler: AC6@6.24.0
+  target-types:
+    - type: TM4C123GH6PM
+      device: TM4C123GH6PM
+      optimize: debug
+  projects:
+    - project: miniproject.cproject.yml

@@ -1,0 +1,80 @@
+project:
+  packs:
+    - pack: ARM::CMSIS@^5.9.0
+    - pack: Keil::TM4C_DFP@^1.1.0
+    - pack: ARM::CMSIS-NN@^4.0.0
+    - pack: ARM::CMSIS-DSP@^1.10.1
+  setups:
+    - setup: Options for TM4C123GH6PM
+      processor:
+        fpu: sp
+      debug: "on"
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++11
+            - -fno-exceptions
+          ASM:
+            - -masm=auto
+          Link:
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  groups:
+    - group: src
+      files:
+        - file: main.c
+        - file: calculator.c
+        - file: keypad.c
+        - file: lcd.c
+        - file: system.c
+        - file: splash.c
+        - file: games.c
+    - group: config
+      files:
+        - file: pin_definitions.h
+    - group: docs
+      files:
+        - file: README.txt
+        - file: HARDWARE_CONNECTIONS.txt
+        - file: EasterEggs.txt
+    - group: inc
+      files:
+        - file: calculator.h
+        - file: lcd.h
+        - file: keypad.h
+        - file: system.h
+        - file: splash.h
+        - file: games.h
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Keil::Device:Startup

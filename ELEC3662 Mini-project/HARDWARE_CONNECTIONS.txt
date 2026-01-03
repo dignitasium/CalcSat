@@ -1,0 +1,128 @@
+# Hardware Connection Diagram
+
+## TM4C123GH6PM Pin Connections
+
+```
+TM4C123GH6PM                    LCD (16x2 HD44780)
++------------+                  +------------+
+¦            ¦                  ¦            ¦
+¦       PA2  +-----------------?¦ EN  (Pin 6)¦
+¦       PA3  +-----------------?¦ RS  (Pin 4)¦
+¦            ¦                  ¦ GND (Pin 1)¦?--- GND
+¦            ¦                  ¦ VCC (Pin 2)¦?--- +5V
+¦       PB4  +-----------------?¦ DB4 (Pin11)¦
+¦       PB5  +-----------------?¦ DB5 (Pin12)¦
+¦       PB6  +-----------------?¦ DB6 (Pin13)¦
+¦       PB7  +-----------------?¦ DB7 (Pin14)¦
+¦            ¦                  ¦ V0  (Pin 3)¦?--- Contrast Pot
+¦            ¦                  ¦ R/W (Pin 5)¦?--- GND (write mode)
++------------+                  +------------+
+
+TM4C123GH6PM                    Keypad (4x4 Matrix)
++------------+                  +------------+
+¦            ¦                  ¦  1  2  3  A¦
+¦       PB0  +-----------------?¦  ¦  ¦  ¦  ¦¦ (Columns)
+¦       PB1  +-----------------?¦  ¦  ¦  ¦  ¦¦
+¦       PB2  +-----------------?¦  ¦  ¦  ¦  ¦¦
+¦       PB3  +-----------------?¦  ¦  ¦  ¦  ¦¦
+¦            ¦                  ¦  4  5  6  B¦
+¦       PE0  ¦?-----------------¦------------¦ Row 0
+¦       PE1  ¦?-----------------¦  7  8  9  C¦ Row 1
+¦       PE2  ¦?-----------------¦------------¦ Row 2
+¦       PE3  ¦?-----------------¦  *  0  #  D¦ Row 3
+¦            ¦                  ¦------------¦
++------------+                  +------------+
+```
+
+## Port Usage Summary
+
+### Port A (LCD Control)
+- **PA2**: LCD Enable (Output)
+- **PA3**: LCD Register Select (Output)
+
+### Port B (Dual Function)
+- **PB0-3**: Keypad Columns (Outputs)
+- **PB4-7**: LCD Data (Outputs)
+
+### Port E (Keypad Rows)
+- **PE0-3**: Keypad Rows (Inputs with Pull-Down)
+
+## Detailed Pin Mapping
+
+### LCD Connections
+| TM4C Pin | LCD Pin | Function        | Direction |
+|----------|---------|-----------------|-----------|
+| PA2      | 6       | Enable (EN)     | Output    |
+| PA3      | 4       | Register Select | Output    |
+| PB4      | 11      | Data Bit 4      | Output    |
+| PB5      | 12      | Data Bit 5      | Output    |
+| PB6      | 13      | Data Bit 6      | Output    |
+| PB7      | 14      | Data Bit 7      | Output    |
+| GND      | 1, 5    | Ground, R/W     | -         |
+| +5V      | 2       | VCC             | -         |
+| Pot      | 3       | Contrast        | -         |
+
+### Keypad Connections
+| TM4C Pin | Keypad Connection | Function | Direction |
+|----------|-------------------|----------|-----------|
+| PB0      | Column 0          | Col 0    | Output    |
+| PB1      | Column 1          | Col 1    | Output    |
+| PB2      | Column 2          | Col 2    | Output    |
+| PB3      | Column 3          | Col 3    | Output    |
+| PE0      | Row 0             | Row 0    | Input     |
+| PE1      | Row 1             | Row 1    | Input     |
+| PE2      | Row 2             | Row 2    | Input     |
+| PE3      | Row 3             | Row 3    | Input     |
+
+## Keypad Matrix Layout
+
+```
+      Col0   Col1   Col2   Col3
+       PB0    PB1    PB2    PB3
+        ¦      ¦      ¦      ¦
+Row0 ---+--1---+--2---+--3---+--A--- PE0
+        ¦      ¦      ¦      ¦
+Row1 ---+--4---+--5---+--6---+--B--- PE1
+        ¦      ¦      ¦      ¦
+Row2 ---+--7---+--8---+--9---+--C--- PE2
+        ¦      ¦      ¦      ¦
+Row3 ---+--*---+--0---+--#---+--D--- PE3
+        ¦      ¦      ¦      ¦
+```
+
+## Important Notes
+
+1. **Shared Port B**: PB0-3 are used for keypad columns, PB4-7 for LCD data.
+   The code carefully preserves LCD data when scanning keypad.
+
+2. **Pull-Down Resistors**: PE0-3 must have pull-down resistors enabled
+   in software (GPIO_PORTE_PDR_R = 0x0F).
+
+3. **LCD R/W Pin**: Tied to GND for write-only mode (simplifies wiring).
+
+4. **Contrast Adjustment**: Connect 10kO potentiometer between GND and +5V,
+   wiper to LCD V0 (pin 3).
+
+5. **Power Supply**: LCD requires stable 5V supply. TM4C runs at 3.3V logic
+   but can drive 5V-tolerant LCD with proper level shifters if needed.
+   Most HD44780 LCDs work fine with 3.3V logic levels.
+
+## Scanning Operation
+
+### Keypad Scanning Sequence
+1. Set one column HIGH at a time
+2. Read all row inputs
+3. If any row is HIGH, determine which key based on row-column intersection
+4. Move to next column
+5. Repeat for all 4 columns
+
+### Example: Detecting Key '5'
+1. PB1 (Col1) = HIGH
+2. Read PE1 (Row1) = HIGH
+3. Key '5' detected (Row1, Col1)
+
+## Power Requirements
+- TM4C123: 3.3V (regulated)
+- LCD: 5V (or 3.3V compatible)
+- Keypad: No power required (passive matrix)
+- Total current: ~50mA (LCD backlight varies)
