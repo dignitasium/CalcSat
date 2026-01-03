@@ -1,7 +1,7 @@
 # CALCSAT – TM4C123GH6PM SCIENTIFIC CALCULATOR  
 
 # Project Summary  
----------------  
+
 CalcSat is a feature-rich scientific-style calculator implemented on the TI TM4C123GH6PM LaunchPad.  
 It combines a floating-point calculator with operator precedence, full memory functions, and a set of hidden games and easter eggs, all controlled via a 4×4 keypad and displayed on a 16×2 character LCD.  
 
